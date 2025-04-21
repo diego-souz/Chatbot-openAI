@@ -7,7 +7,7 @@ client = openai.Client()
 def get_ticker_data(ticker, period):
     ticker_obj = yf.Ticker(ticker)
     hist = ticker_obj.history(period=period)["Close"]
-    hist.index = hist.index.strftime("%Y-%m-%d")
+    hist.index = hist.index.map(lambda x: x.strftime("%Y-%m-%d"))
     hist = round(hist, 2)
     #Limitar em 30 resultados
     if len(hist) > 30:
