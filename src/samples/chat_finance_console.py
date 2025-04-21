@@ -103,4 +103,4 @@ if __name__ == "__main__":
         message.append({"role":"user", "content":user_input})
         message = text_gen(message)
         
-    print(message)
+    #print(message)
