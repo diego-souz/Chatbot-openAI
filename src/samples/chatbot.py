@@ -1,6 +1,10 @@
 import openai
+from colorama import Fore, Style, init
 
 client = openai.Client()
+
+# Inicializa o colorama
+init(autoreset=True)
 
 def text_gen(message):
     response = client.chat.completions.create(
@@ -10,7 +14,7 @@ def text_gen(message):
         max_tokens=1000,
         stream=True
     )
-    print("Bot: ", end="")
+    print(f"{Fore.CYAN}Assitente IA: ", end="")
     fulltext = ""
     for response_stream in response:
         text= response_stream.choices[0].delta.content
@@ -24,12 +28,12 @@ def text_gen(message):
 
 
 if __name__ == "__main__":
-    print("Bem vindo ao ChatBot")
-    print("Digite 'sair' para encerrar a conversa")
-    print("Iniciando conversa...")
+    print(f"{Fore.GREEN}Bem vindo ao ChatBot")
+    print(f"{Fore.GREEN}Digite 'sair' para encerrar a conversa")
+    print(f"{Fore.GREEN}Iniciando conversa...")
     message = []
     while True:
-        user_input = input("Informe sua mensagem: ")
+        user_input = input(f"{Fore.LIGHTYELLOW_EX}Informe sua mensagem: {Style.RESET_ALL}")
 
         # Verificar se usário deseja sair
         if user_input.lower() == "sair":
