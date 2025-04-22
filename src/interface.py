@@ -30,3 +30,8 @@ def streamlit_interface():
         last_message = st.session_state.messages[-1]
         if last_message["role"] == "assistant":
             st.chat_message("assistant").markdown(last_message["content"])
+
+
+if __name__ == "__main__":
+
+    streamlit_interface()
