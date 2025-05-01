@@ -8,4 +8,4 @@ colorama
 streamlit
 playsound==1.2.2
 speechrecognition==3.14.0
-#pyaudio
+pyaudio #Precisa do compilador c++ instalado
